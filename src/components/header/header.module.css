@@ -12,6 +12,7 @@
 
 .header img {
   width: 10%;
+  max-width: 3em;
 }
 
 .logout {

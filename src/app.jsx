@@ -3,14 +3,14 @@ import Header from './components/header/header';
 import Login from './components/login/login';
 import Footer from './components/footer/footer';
 
-function App() {
+function App({ authService }) {
   return (
     <div className={styles.container}>
-      <div className={styles.modal}>
+      <section className={styles.modal}>
         <Header />
-        <Login />
+        <Login authService={authService} />
         <Footer />
-      </div>
+      </section>
     </div>
   );
 }
