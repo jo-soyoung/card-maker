@@ -3,14 +3,20 @@ import styles from './login.module.css';
 
 const Login = props => {
   return (
-    <div className={styles.login}>
+    <section className={styles.login}>
       <h2>Login</h2>
-      <div className={styles.loginBtn}>
-        <button>Google</button>
-        <button>Facebook</button>
-        <button>GitHub</button>
-      </div>
-    </div>
+      <ul className={styles.loginBtns}>
+        <li>
+          <button>Google</button>
+        </li>
+        <li>
+          <button>Facebook</button>
+        </li>
+        <li>
+          <button>GitHub</button>
+        </li>
+      </ul>
+    </section>
   );
 };
 

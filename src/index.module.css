@@ -26,3 +26,8 @@ button {
   border: none;
   box-shadow: none;
 }
+
+ul,
+li {
+  list-style: none;
+}

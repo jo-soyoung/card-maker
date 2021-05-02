@@ -15,15 +15,20 @@
   margin-bottom: 1em;
 }
 
-.loginBtn {
+.loginBtns {
   display: flex;
   flex-direction: column;
 }
 
-.loginBtn button {
+.loginBtns li {
   margin-bottom: 0.5em;
+}
+
+.loginBtns li button {
+  width: 100%;
   padding: 0.5em;
   font-size: 1rem;
+  font-weight: 500;
   background-color: makerWhite;
   border: makerGreen 0.2em solid;
   border-radius: 2em;
@@ -31,10 +36,10 @@
   transition: all 200ms ease;
 }
 
-.loginBtn button:hover {
+.loginBtns li button:hover {
   background-color: makerLightGrey;
 }
 
-.loginBtn button:last-child {
+.loginBtns li:last-child {
   margin-bottom: 0;
 }
