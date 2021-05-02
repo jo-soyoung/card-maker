@@ -1,7 +1,18 @@
-import './app.css';
+import styles from './app.module.css';
+import Header from './components/header/header';
+import Login from './components/login/login';
+import Footer from './components/footer/footer';
 
 function App() {
-  return <h1>Hello React!</h1>;
+  return (
+    <div className={styles.container}>
+      <div className={styles.modal}>
+        <Header />
+        <Login />
+        <Footer />
+      </div>
+    </div>
+  );
 }
 
 export default App;
