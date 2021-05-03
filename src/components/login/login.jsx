@@ -1,14 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './login.module.css';
 import Header from '../header/header';
 import Footer from '../footer/footer';
+import { useHistory } from 'react-router-dom';
 
 const Login = ({ authService }) => {
+  const history = useHistory();
+
+  const goToApp = userId => {
+    history.push({
+      pathname: '/home',
+      state: { id: userId },
+    });
+  };
+
   const onLogin = e => {
     authService
       .login(e.currentTarget.textContent) //
-      .then(console.log);
+      .then(data => goToApp(data.user.uid));
   };
+
+  useEffect(() => {
+    authService.onAuthChange(user => {
+      user && goToApp(user.uid);
+    });
+  });
 
   return (
     <section className={styles.login}>
