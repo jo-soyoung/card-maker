@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import styles from './home.module.css';
 import Header from '../header/header';
-import Maker from '../maker/maker';
+import Editor from '../editor/editor';
+import Preview from '../preview/preview';
 import Footer from '../footer/footer';
 import { useHistory } from 'react-router-dom';
 
@@ -23,7 +24,12 @@ const Home = ({ authService }) => {
   return (
     <div className={styles.home}>
       <Header onLogout={onLogout} />
-      <Maker />
+
+      <main className={styles.main}>
+        <Editor />
+        <Preview />
+      </main>
+
       <Footer />
     </div>
   );

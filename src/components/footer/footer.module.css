@@ -8,3 +8,9 @@
   color: makerWhite;
   background-color: makerGreen;
 }
+
+.footer.app {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
