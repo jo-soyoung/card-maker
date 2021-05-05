@@ -15,7 +15,7 @@ const Home = ({ authService }) => {
       theme: 'light',
       title: 'Software Engineer',
       email: 'soyoung@gmail.com',
-      message: 'go for it',
+      message: 'Go for it',
       fileName: 'soyoung',
       fileURL: null,
     },
@@ -26,7 +26,7 @@ const Home = ({ authService }) => {
       theme: 'dark',
       title: 'Software Engineer',
       email: 'soyoung@gmail.com',
-      message: 'go for it',
+      message: 'Do not limit yourself',
       fileName: 'No file',
       fileURL: 'dsfsdf',
     },
@@ -37,7 +37,7 @@ const Home = ({ authService }) => {
       theme: 'colorful',
       title: 'Software Engineer',
       email: 'soyoung@gmail.com',
-      message: 'go for it',
+      message: 'One day or day one, it is your choice.',
       fileName: 'paul',
       fileURL: null,
     },
@@ -57,12 +57,17 @@ const Home = ({ authService }) => {
     });
   });
 
+  const addCard = card => {
+    const updatedCard = [...cards, card];
+    setCards(updatedCard);
+  };
+
   return (
     <div className={styles.home}>
       <Header onLogout={onLogout} />
 
       <main className={styles.main}>
-        <Editor cards={cards} />
+        <Editor cards={cards} addCard={addCard} />
         <Preview cards={cards} />
       </main>
 
