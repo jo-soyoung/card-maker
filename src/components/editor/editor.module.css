@@ -1,5 +1,4 @@
-@value makerLightGrey from '../../common/colors.css';
-@value makerGreen from '../../common/colors.css';
+@value makerLightGrey, makerGreen from '../../common/colors.css';
 
 .editor {
   padding: 4em 1em;

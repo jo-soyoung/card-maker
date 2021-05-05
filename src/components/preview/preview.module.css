@@ -12,3 +12,11 @@
   text-align: center;
   color: makerGreen;
 }
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}

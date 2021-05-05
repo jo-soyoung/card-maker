@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './home.module.css';
 import Header from '../header/header';
 import Editor from '../editor/editor';
@@ -7,6 +7,42 @@ import Footer from '../footer/footer';
 import { useHistory } from 'react-router-dom';
 
 const Home = ({ authService }) => {
+  const [cards, setCards] = useState([
+    {
+      id: '1',
+      name: 'Soyoung',
+      company: 'Google',
+      theme: 'light',
+      title: 'Software Engineer',
+      email: 'soyoung@gmail.com',
+      message: 'go for it',
+      fileName: 'soyoung',
+      fileURL: null,
+    },
+    {
+      id: '2',
+      name: 'Soyoung',
+      company: 'Google',
+      theme: 'dark',
+      title: 'Software Engineer',
+      email: 'soyoung@gmail.com',
+      message: 'go for it',
+      fileName: 'soyoung',
+      fileURL: 'dsfsdf',
+    },
+    {
+      id: '3',
+      name: 'Soyoung',
+      company: 'Google',
+      theme: 'colorful',
+      title: 'Software Engineer',
+      email: 'soyoung@gmail.com',
+      message: 'go for it',
+      fileName: 'soyoung',
+      fileURL: null,
+    },
+  ]);
+
   const history = useHistory();
 
   const onLogout = () => {
@@ -26,8 +62,8 @@ const Home = ({ authService }) => {
       <Header onLogout={onLogout} />
 
       <main className={styles.main}>
-        <Editor />
-        <Preview />
+        <Editor cards={cards} />
+        <Preview cards={cards} />
       </main>
 
       <Footer />

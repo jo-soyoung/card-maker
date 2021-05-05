@@ -1,5 +1,4 @@
-@value makerWhite from '../../common/colors.css';
-@value makerGreen from '../../common/colors.css';
+@value makerWhite, makerGreen from '../../common/colors.css';
 
 .footer {
   padding: 1em;
