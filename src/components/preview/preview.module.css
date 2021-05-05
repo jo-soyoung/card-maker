@@ -1,15 +1,16 @@
-@value makerGreen from '../../common/colors.css';
+@value makerGreen, makerWhite from '../../common/colors.css';
 
 .preview {
   padding: 4em 1em;
   flex-basis: 50%;
-  background-color: goldenrod;
+  background-color: makerWhite;
 }
 
 .title {
   display: block;
   margin-bottom: 1em;
   text-align: center;
+  font-size: 2em;
   color: makerGreen;
 }
 
