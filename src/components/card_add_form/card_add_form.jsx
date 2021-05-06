@@ -14,7 +14,6 @@ const CardAddForm = ({ addCard }) => {
 
   const onSubmit = e => {
     e.preventDefault();
-
     const card = {
       id: Date.now(),
       name: nameRef.current.value || '',
@@ -26,7 +25,6 @@ const CardAddForm = ({ addCard }) => {
       fileName: '',
       fileURL: '',
     };
-
     addCard(card);
     formRef.current.reset();
   };

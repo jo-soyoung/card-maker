@@ -7,8 +7,8 @@ import Footer from '../footer/footer';
 import { useHistory } from 'react-router-dom';
 
 const Home = ({ authService }) => {
-  const [cards, setCards] = useState([
-    {
+  const [cards, setCards] = useState({
+    1: {
       id: '1',
       name: 'Soyoung',
       company: 'Google',
@@ -19,7 +19,7 @@ const Home = ({ authService }) => {
       fileName: 'soyoung',
       fileURL: null,
     },
-    {
+    2: {
       id: '2',
       name: 'Anna',
       company: 'Google',
@@ -30,7 +30,7 @@ const Home = ({ authService }) => {
       fileName: 'No file',
       fileURL: 'dsfsdf',
     },
-    {
+    3: {
       id: '3',
       name: 'Paul',
       company: 'Google',
@@ -41,7 +41,7 @@ const Home = ({ authService }) => {
       fileName: 'paul',
       fileURL: null,
     },
-  ]);
+  });
 
   const history = useHistory();
 
@@ -57,9 +57,20 @@ const Home = ({ authService }) => {
     });
   });
 
-  const addCard = card => {
-    const updatedCard = [...cards, card];
-    setCards(updatedCard);
+  const addOrUpdateCard = card => {
+    setCards(cards => {
+      const updatedCard = { ...cards };
+      updatedCard[card.id] = card;
+      return updatedCard;
+    });
+  };
+
+  const deleteCard = card => {
+    setCards(cards => {
+      const updatedCard = { ...cards };
+      delete updatedCard[card.id];
+      return updatedCard;
+    });
   };
 
   return (
@@ -67,7 +78,12 @@ const Home = ({ authService }) => {
       <Header onLogout={onLogout} />
 
       <main className={styles.main}>
-        <Editor cards={cards} addCard={addCard} />
+        <Editor
+          cards={cards}
+          addCard={addOrUpdateCard}
+          updateCard={addOrUpdateCard}
+          deleteCard={deleteCard}
+        />
         <Preview cards={cards} />
       </main>
 
