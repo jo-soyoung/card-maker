@@ -29,6 +29,10 @@ const CardAddForm = ({ addCard }) => {
     formRef.current.reset();
   };
 
+  const onUpload = e => {
+    e.preventDefault();
+  };
+
   return (
     <li>
       <form className={styles.form} ref={formRef}>
@@ -71,9 +75,9 @@ const CardAddForm = ({ addCard }) => {
           name="message"
           placeholder="Message"
         />
-        <div className={styles.fileInput}>
-          <ImageFileInput />
-        </div>
+        {/* <div className={styles.fileInput}> */}
+        <ImageFileInput name="No File" onClick={onUpload} />
+        {/* </div> */}
         <Button name="Add" onClick={onSubmit} />
       </form>
     </li>

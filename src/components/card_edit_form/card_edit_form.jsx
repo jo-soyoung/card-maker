@@ -35,6 +35,10 @@ const CardEditForm = ({ card, updateCard, deleteCard }) => {
     updateCard({ ...card, [e.currentTarget.name]: e.currentTarget.value });
   };
 
+  const onUpload = e => {
+    e.preventDefault();
+  };
+
   return (
     <li>
       <form className={styles.form} ref={formRef}>
@@ -93,9 +97,7 @@ const CardEditForm = ({ card, updateCard, deleteCard }) => {
           placeholder="Message"
           onChange={onChange}
         />
-        <div className={styles.fileInput}>
-          <ImageFileInput />
-        </div>
+        <ImageFileInput name="No File" onClick={onUpload} />
         <Button name="Delete" onClick={onSubmit} />
       </form>
     </li>
