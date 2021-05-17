@@ -3,7 +3,7 @@ import styles from './app.module.css';
 import Login from './components/login/login';
 import Home from './components/home/home';
 
-function App({ authService }) {
+function App({ FileInput, authService }) {
   return (
     <div className={styles.app}>
       <BrowserRouter>
@@ -12,7 +12,7 @@ function App({ authService }) {
             <Login authService={authService} />
           </Route>
           <Route path="/home">
-            <Home authService={authService} />
+            <Home FileInput={FileInput} authService={authService} />
           </Route>
         </Switch>
       </BrowserRouter>

@@ -6,7 +6,7 @@ import Preview from '../preview/preview';
 import Footer from '../footer/footer';
 import { useHistory } from 'react-router-dom';
 
-const Home = ({ authService }) => {
+const Home = ({ FileInput, authService }) => {
   const [cards, setCards] = useState({
     1: {
       id: '1',
@@ -79,6 +79,7 @@ const Home = ({ authService }) => {
 
       <main className={styles.main}>
         <Editor
+          FileInput={FileInput}
           cards={cards}
           addCard={addOrUpdateCard}
           updateCard={addOrUpdateCard}
