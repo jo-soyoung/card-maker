@@ -1,10 +1,11 @@
 @value makerLightGrey, makerGreen, makerWhite from '../../common/colors.css';
 
 .editor {
-  padding: 4em 1em;
+  padding: 2em 1em;
   flex-basis: 50%;
   border-right: 1px solid makerLightGrey;
   background-color: makerWhite;
+  overflow-y: auto;
 }
 
 .title {

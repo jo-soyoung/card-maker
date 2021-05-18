@@ -1,9 +1,10 @@
 @value makerGreen, makerWhite from '../../common/colors.css';
 
 .preview {
-  padding: 4em 1em;
+  padding: 2em 1em;
   flex-basis: 50%;
   background-color: makerWhite;
+  overflow-y: auto;
 }
 
 .title {
