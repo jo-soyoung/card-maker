@@ -6,52 +6,31 @@ import Preview from '../preview/preview';
 import Footer from '../footer/footer';
 import { useHistory } from 'react-router-dom';
 
-const Home = ({ FileInput, authService }) => {
-  const [cards, setCards] = useState({
-    1: {
-      id: '1',
-      name: 'Soyoung',
-      company: 'Google',
-      theme: 'light',
-      title: 'Software Engineer',
-      email: 'soyoung@gmail.com',
-      message: 'Go for it',
-      fileName: 'soyoung',
-      fileURL: null,
-    },
-    2: {
-      id: '2',
-      name: 'Anna',
-      company: 'Google',
-      theme: 'dark',
-      title: 'Software Engineer',
-      email: 'soyoung@gmail.com',
-      message: 'Do not limit yourself',
-      fileName: 'No file',
-      fileURL: 'dsfsdf',
-    },
-    3: {
-      id: '3',
-      name: 'Paul',
-      company: 'Google',
-      theme: 'colorful',
-      title: 'Software Engineer',
-      email: 'soyoung@gmail.com',
-      message: 'One day or day one, it is your choice.',
-      fileName: 'paul',
-      fileURL: null,
-    },
-  });
-
+const Home = ({ FileInput, authService, cardRepository }) => {
   const history = useHistory();
+  const historyState = history?.location?.state;
+  const [cards, setCards] = useState({});
+  const [userId, setUserId] = useState(historyState && historyState.id);
 
   const onLogout = () => {
     authService.logout();
   };
 
   useEffect(() => {
+    if (!userId) {
+      return;
+    }
+    const stopSync = cardRepository.syncCards(userId, cards => {
+      setCards(cards);
+    });
+    return () => stopSync();
+  }, [userId]);
+
+  useEffect(() => {
     authService.onAuthChange(user => {
-      if (!user) {
+      if (user) {
+        setUserId(user.uid);
+      } else {
         history.push('/');
       }
     });
@@ -63,6 +42,7 @@ const Home = ({ FileInput, authService }) => {
       updatedCard[card.id] = card;
       return updatedCard;
     });
+    cardRepository.saveCard(userId, card);
   };
 
   const deleteCard = card => {
@@ -71,6 +51,7 @@ const Home = ({ FileInput, authService }) => {
       delete updatedCard[card.id];
       return updatedCard;
     });
+    cardRepository.removeCard(userId, card);
   };
 
   return (
