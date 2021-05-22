@@ -24,7 +24,7 @@ const Home = ({ FileInput, authService, cardRepository }) => {
       setCards(cards);
     });
     return () => stopSync();
-  }, [userId]);
+  }, [cardRepository, userId]);
 
   useEffect(() => {
     authService.onAuthChange(user => {
@@ -34,7 +34,7 @@ const Home = ({ FileInput, authService, cardRepository }) => {
         history.push('/');
       }
     });
-  });
+  }, [authService, history]);
 
   const addOrUpdateCard = card => {
     setCards(cards => {
