@@ -1,8 +1,8 @@
-import React, { useRef, useState } from 'react';
+import React, { memo, useRef, useState } from 'react';
 import styles from './card_add_form.module.css';
 import Button from '../button/button';
 
-const CardAddForm = ({ FileInput, addCard }) => {
+const CardAddForm = memo(({ FileInput, addCard }) => {
   const formRef = useRef();
   const nameRef = useRef();
   const companyRef = useRef();
@@ -87,6 +87,6 @@ const CardAddForm = ({ FileInput, addCard }) => {
       </form>
     </li>
   );
-};
+});
 
 export default CardAddForm;
